@@ -1,6 +1,8 @@
 class Bike < ApplicationRecord
   belongs_to :user
   has_many :bookings
+  has_many :favorites, dependent: :destroy
+  has_many :reviews, through: :bookings
   TYPE = %w[VTT Road Hybrid Cruiser BMX Folding Electric Touring Gravel Fat].freeze
 
   enum type: {
@@ -16,5 +18,5 @@ class Bike < ApplicationRecord
     Fat: 'Fat'
   }
   validates :price_per_day, presence: true
-  validates :type, presence: true, inclusion: { in: TYPE }
+  validates :type, inclusion: { in: TYPE }
 end

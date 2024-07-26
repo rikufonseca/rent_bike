@@ -1,7 +1,8 @@
 class Booking < ApplicationRecord
   belongs_to :user
   belongs_to :bike
-  has_many :bookings
+  has_many :reviews
+  has_many :messages, dependent: :destroy
   STATUS = %w[unconfirmed confirmed done rejected].freeze
 
   enum status: {
