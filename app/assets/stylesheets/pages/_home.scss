@@ -1,1 +1,25 @@
 // Specific CSS for your home-page
+#video {
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.in-middle-element {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#bike-animation {
+  height: 98vh;
+  color: rgb(255, 255, 255);
+  font-size: xxx-large;
+}
+
+.animate__animated.animate__backInLeft {
+  --animate-duration: 3s;
+}

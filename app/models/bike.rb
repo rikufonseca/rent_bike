@@ -3,6 +3,7 @@ class Bike < ApplicationRecord
   has_many :bookings
   has_many :favorites, dependent: :destroy
   has_many :reviews, through: :bookings
+  has_many_attached :photos
   TYPE = %w[VTT Road Hybrid Cruiser BMX Folding Electric Touring Gravel Fat].freeze
 
   enum type: {
