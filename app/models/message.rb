@@ -1,6 +1,5 @@
 class Message < ApplicationRecord
   belongs_to :user
-  belongs_to :bike, through: :bookings
   belongs_to :booking
   TYPE = %w[report message].freeze
 

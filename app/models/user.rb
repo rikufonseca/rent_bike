@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_many :bikes
   has_many :favories
   has_many :messages
+  has_many :messages, through: :bookings
   has_many :reviews, through: :bookings
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
