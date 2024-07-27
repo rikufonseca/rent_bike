@@ -1,9 +1,10 @@
 <div class="direction-inline space-between p-2">
-  <p> Rent a bike </p>
-  <p> Rent your bike </p>
-  <p> The favorites bikes </p>
-  <p> Your reservations </p>
-  <p> Your messages </p>
+  <%= link_to "Rent a bike", root_path %>
+  <%= link_to "Rent your bike", new_bike_path  %>
+  <%= link_to "The favorites bikes", top_bikes_path %>
+  <%= link_to "Your reservations", bookings_path %>
+  <%= link_to "Your messages", messages_path %>
+  <p>  </p>
   <% if user_signed_in? %>
     <%= link_to "log out", destroy_user_session_path, data: {turbo_method: :delete} %>
   <% else current_user.present? %>
