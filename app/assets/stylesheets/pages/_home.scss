@@ -44,13 +44,13 @@
 }
 
 .display-home {
-  position: fixed; /* Si vous voulez que le menu soit toujours visible */
+  position: fixed;
   top: 0;
   left: 0;
   height: 100%;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent */
+  background-color: rgba(0, 0, 0, 0.8);
   color: white;
   padding: 1em;
-  z-index: 1; /* Assurez-vous qu'il est au-dessus de la vidéo */
+  z-index: 1;
 }
