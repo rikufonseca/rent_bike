@@ -9,5 +9,11 @@
   </div>
   <div class="display-home">
     <%= render "components/navbar" %>
+    <% @bikes.each do |bike| %>
+      <% bike.photos.each do |photo| %>
+        <%= image_tag photo %>
+      <% end %>
+
+    <% end %>
   </div>
 </div>

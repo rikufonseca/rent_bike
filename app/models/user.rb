@@ -4,7 +4,7 @@ class User < ApplicationRecord
   has_many :bookings
   has_many :bikes, through: :bookings
   has_many :bikes
-  has_many :favories
+  has_many :favorites
   has_many :messages
   has_many :messages, through: :bookings
   has_many :reviews, through: :bookings
