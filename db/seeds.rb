@@ -21,7 +21,7 @@ puts "create bikes"
 
 50.times do
   image_url = "https://loremflickr.com/320/240/bicycle"
-  bike = Bike.create!(
+  bike = Bike.new(
     bike_type: Bike::BIKE_TYPES.sample,
     description: Faker::Vehicle.standard_specs,
     manufacturer: Faker::Vehicle.manufacturer,
@@ -35,7 +35,7 @@ puts "create bikes"
   bike.photos.attach(
     io: image_file,
     filename: "bike_photo_#{rand(1000)}.jpg",
-    content_type: 'image/jpeg'
+    content_type: 'image/jpg'
   )
   bike.save!
 end
