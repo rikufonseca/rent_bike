@@ -1,0 +1,31 @@
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.in-middle-element {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.direction-inline {
+  display: flex;
+  flex-direction: row;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.disable-scroll {
+  overflow-y: hidden;
+}
+
+.scrollable {
+  overflow-y: scroll;
+}
+
+.scrollable::-webkit-scrollbar {
+  width: 0;
+}
