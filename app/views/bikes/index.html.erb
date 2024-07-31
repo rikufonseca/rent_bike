@@ -1,4 +1,4 @@
-<div data-controller="home" class="home-page">
+<div class="home-page">
   <div class="video-container" data-home-target="frame">
     <video autoplay muted loop id="video">
       <source src='https://res.cloudinary.com/rikufonseca/video/upload/v1721992816/rent_bike_home_sowuz7.mp4' type="video/mp4">
@@ -9,10 +9,19 @@
   </div>
   <div class="display-home">
     <%= render "components/navbar" %>
-    <% @bikes.each do |bike| %>
-      <% bike.photos.each do |photo| %>
-        <%= image_tag photo %>
-      <% end %>
-    <% end %>
+    <div class="cards-container">
+        <% @bikes.each do |bike| %>
+        <div class="card">
+          <% bike.photos.each do |photo| %>
+            <%= image_tag photo %>
+          <% end %>
+          <div>
+            <p><%= bike.price_per_day %>$ / week </p>
+            <p>type: <%= bike.bike_type %></p>
+          </div>
+          <p>model: <%= bike.model %></p>
+        </div>
+        <% end %>
+    </div>
   </div>
 </div>

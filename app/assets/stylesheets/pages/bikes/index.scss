@@ -37,12 +37,31 @@
 }
 
 .display-home {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.8);
   color: white;
-  padding: 1em;
   z-index: 1;
+}
+
+.home-page {
+  position: relative;
+}
+
+.cards-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 16px;
+  padding: 0 2rem 2rem 2rem;
+  border-radius: 8px;
+  margin-top: 96px;
+}
+
+.card {
+  color: white;
+  background-color: #00000033;
+  border-radius: 3px;
+  box-shadow: 0 2px 8px rgba(14,21,47,0.25);
 }

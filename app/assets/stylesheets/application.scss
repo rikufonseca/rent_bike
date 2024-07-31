@@ -12,22 +12,3 @@
 @import "pages/index";
 
 // Global scss
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-.in-middle-element {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.direction-inline {
-  display: flex;
-  flex-direction: row;
-}
-
-.space-between {
-  justify-content: space-between;
-}
