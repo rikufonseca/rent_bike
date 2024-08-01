@@ -1,8 +1,10 @@
 Geocoder.configure(
-  units: :km
-  # Geocoding options
-  # timeout: 3,                 # geocoding service timeout (secs)
-  # lookup: :nominatim,         # name of geocoding service (symbol)
+  units: :km,
+  # Geocoding options            # geocoding service timeout (secs)
+  lookup: :mapbox,
+  api_key: ENV['MAPBOX_API_KEY'],
+  use_https: true,
+  timeout: 5
   # ip_lookup: :ipinfo_io,      # name of IP address geocoding service (symbol)
   # language: :en,              # ISO-639 language code
   # use_https: false,           # use HTTPS for lookup requests? (if supported)
