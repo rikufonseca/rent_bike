@@ -44,6 +44,7 @@
   background-color: rgba(0, 0, 0, 0.8);
   color: white;
   z-index: 1;
+  display: flex;
 }
 
 .home-page {
@@ -51,6 +52,7 @@
 }
 
 .cards-container {
+  width: 172%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 16px;
@@ -64,4 +66,8 @@
   background-color: #00000033;
   border-radius: 3px;
   box-shadow: 0 2px 8px rgba(14,21,47,0.25);
+}
+
+.map {
+  margin-top: 96px;
 }
