@@ -52,7 +52,7 @@
 }
 
 .cards-container {
-  width: 172%;
+  width: 64%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 16px;
@@ -70,4 +70,10 @@
 
 .map {
   margin-top: 96px;
+  position: fixed;
+  right: 0;
+}
+
+.info-card {
+  padding: 10px;
 }
