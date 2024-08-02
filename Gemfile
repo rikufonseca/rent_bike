@@ -57,6 +57,8 @@ gem "sassc-rails"
 gem "cloudinary"
 gem 'faker'
 gem "geocoder"
+gem 'securerandom'
+gem 'unsplash'
 
 group :development, :test do
   gem "dotenv-rails"
