@@ -13,7 +13,7 @@
         <% @bikes.each do |bike| %>
         <div class="card">
           <% bike.photos.each do |photo| %>
-            <%= image_tag photo %>
+              <%= image_tag photo %>
           <% end %>
           <div class="info-card">
             <p><%= bike.price_per_day %>$ / week </p>
