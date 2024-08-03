@@ -16,12 +16,20 @@ export default class extends Controller {
     })
     this.#addMarkersToMap()
     this.#fitMapToMarkers()
+    this.#localiseUserOnMap()
   }
 
   #addMarkersToMap() {
     this.markersValue.forEach((marker) => {
-      new mapboxgl.Marker()
+      const popup = new mapboxgl.Popup().setHTML(marker.info_window_html)
+
+      const customMarker = document.createElement("div")
+      customMarker.innerHTML = marker.marker_html
+      customMarker.className = "custom-marker"
+
+      new mapboxgl.Marker(customMarker)
       .setLngLat([ marker.lng, marker.lat ])
+      .setPopup(popup)
       .addTo(this.map)
     })
   }
@@ -31,4 +39,18 @@ export default class extends Controller {
     this.markersValue.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))
     this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 })
   }
-}
+
+  // Initialize the GeolocateControl.
+  #localiseUserOnMap() {
+    const geolocate = new mapboxgl.GeolocateControl({
+    positionOptions: {
+        enableHighAccuracy: true
+    },
+    trackUserLocation: true
+   });
+    map.addControl(geolocate);
+    geolocate.on('trackuserlocationstart', () => {
+        console.log('A trackuserlocationstart event has occurred.');
+    });
+    }
+  }
