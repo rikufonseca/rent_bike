@@ -77,12 +77,7 @@ def generate_full_address
     { street_address: "207, Van der Palmkade", postcode: "1051 RK" },
     { street_address: "74, Kollenbergweg", postcode: "1101 AV" },
     { street_address: "1, Drostenburg", postcode: "1102 AM" },
-    { street_address: "212-H, Louis Bouwmeesterstraat", postcode: "1065 LG" },
-    { street_address: "1, Drostenburg", postcode: "1102 AM" },
-    { street_address: "212-H, Louis Bouwmeesterstraat", postcode: "1065 LG" },
-    { street_address: "93, Wedderborg", postcode: "1082 SW" },
-    { street_address: "25-4, Kuinderstraat", postcode: "1079 DH" },
-    { street_address: "1, Drostenburg", postcode: "1102 AM" }
+    { street_address: "212-H, Louis Bouwmeesterstraat", postcode: "1065 LG" }
   ]
 end
 
@@ -96,23 +91,19 @@ def geocode_address(address)
   end
 end
 
+
 def fetch_image_url
-  uri = URI("https://api.unsplash.com/photos/random?client_id=#{ENV['UNSPLASH_ACCESS_KEY']}&query=bicycle&count=1")
+  uri = URI("https://api.unsplash.com/photos/random?client_id=#{ENV['UNSPLASH_ACCESS_KEY']}&query=bicycle&count=50")
   response = Net::HTTP.get(uri)
   json_response = JSON.parse(response)
   json_response.first['urls']['regular']
 end
 
-addresses = generate_full_address.shuffle
+counter = 1
+generate_full_address.each do |address|
 
-50.times do
-  break if addresses.empty?
-
-  address = addresses.pop
   full_address = "#{address[:street_address]}, #{address[:postcode]}, Amsterdam, Netherlands"
   geocoded_data = geocode_address(full_address)
-
-  image_url = fetch_image_url
 
   bike = Bike.new(
     bike_type: Bike::BIKE_TYPES.sample,
@@ -128,13 +119,15 @@ addresses = generate_full_address.shuffle
     longitude: geocoded_data[:longitude]
   )
 
-  image_file = URI.open(image_url)
+  image_file = URI.open(fetch_image_url)
   bike.photos.attach(
     io: image_file,
     filename: "bike_photo_#{SecureRandom.uuid}.jpg",
     content_type: 'image/jpg'
   )
   bike.save!
+  print "created #{counter} bikes \\\r"
+  counter += 1
 end
 
 puts "seed bikes done"
