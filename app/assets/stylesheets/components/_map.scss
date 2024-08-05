@@ -5,6 +5,7 @@
   background: #313131;
   width: 199px;
   font-size: 13px;
+  padding: 0px;
 }
 
 .mapboxgl-popup-close-button {
@@ -34,4 +35,14 @@
 
 .mapboxgl-popup-close-button:focus, .mapboxgl-popup-content:focus, .bike-button:focus {
   outline: none;
+}
+
+.bike-button img {
+  height: 144px;
+  width: 199px;
+  object-fit: cover;
+}
+
+.bike-info-on-map {
+  padding: 8px;
 }

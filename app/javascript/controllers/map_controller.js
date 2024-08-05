@@ -39,18 +39,4 @@ export default class extends Controller {
     this.markersValue.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))
     this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 })
   }
-
-  // Initialize the GeolocateControl.
-  #localiseUserOnMap() {
-    const geolocate = new mapboxgl.GeolocateControl({
-    positionOptions: {
-        enableHighAccuracy: true
-    },
-    trackUserLocation: true
-   });
-    map.addControl(geolocate);
-    geolocate.on('trackuserlocationstart', () => {
-        console.log('A trackuserlocationstart event has occurred.');
-    });
-    }
-  }
+}
