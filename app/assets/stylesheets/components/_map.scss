@@ -22,9 +22,12 @@
   font-size: large;
 }
 
-.mapboxgl-popup-tip, .mapboxgl-popup-anchor-bottom, .mapboxgl-popup-anchor-left, .mapboxgl-popup-anchor-right, .mapboxgl-popup-anchor-top {
+.mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip, .mapboxgl-popup-anchor-top .mapboxgl-popup-tip {
   border-top-color: #313131 !important;
   border-bottom-color: #313131 !important;
+}
+
+.mapboxgl-popup-anchor-left .mapboxgl-popup-tip, .mapboxgl-popup-anchor-right .mapboxgl-popup-tip {
   border-left-color: #313131 !important;
   border-right-color: #313131 !important;
 }
