@@ -68,12 +68,6 @@
   box-shadow: 0 2px 8px rgba(14,21,47,0.25);
 }
 
-.map {
-  margin-top: 96px;
-  position: fixed;
-  right: 0;
-}
-
 .info-card {
   padding: 10px;
 }
@@ -82,4 +76,42 @@
   height: 144px;
   width: 100%;
   object-fit: cover;
+}
+
+.btn-search-address {
+  background-color: #32a1ce;
+  border: none;
+}
+
+.form-control {
+  background-color: #272727;
+  border: unset;
+  box-shadow: 0 2px 8px rgba(14, 21, 47, 0.25);
+  color: white;
+}
+
+.form-control::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+  color: white;
+}
+
+.form-control:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+  color: white;
+  opacity:  1;
+}
+
+.form-control::-moz-placeholder { /* Mozilla Firefox 19+ */
+  color: white;
+  opacity:  1;
+}
+
+.form-control:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: white;
+}
+
+.form-control::-ms-input-placeholder { /* Microsoft Edge */
+  color: white;
+}
+
+.form-control::placeholder { /* Most modern browsers support this now. */
+  color: white;
 }
