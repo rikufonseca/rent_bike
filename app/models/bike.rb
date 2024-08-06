@@ -1,5 +1,6 @@
 class Bike < ApplicationRecord
   include PgSearch::Model
+  pg_search_scope :search_by_address, against: [:address], using: { tsearch: { prefix: true } }
   belongs_to :user
   has_many :bookings
   has_many :favorites
@@ -7,8 +8,6 @@ class Bike < ApplicationRecord
   has_many_attached :photos
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
-
-  pg_search_scope :search_by_address, against: [:address], using: { tsearch: { prefix: true } }
 
   BIKE_TYPES = %w[VTT Road Hybrid Cruiser BMX Folding Electric Touring Gravel Fat].freeze
 
