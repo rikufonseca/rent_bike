@@ -1,6 +1,17 @@
 class BikesController < ApplicationController
   def index
-    @bikes = Bike.all
+
+    if params[:query].present?
+      @bikes = Bike.where('address ILIKE ?', "%#{params[:query]}%")
+
+      if @bikes.empty?
+        flash.now[:alert] = "Aucun vélo trouvé pour la recherche '#{params[:query]}'"
+        @bikes = Bike.all # Optionally show all bikes if no matches
+      end
+    else
+      @bikes = Bike.all
+    end
+
     @markers = @bikes.geocoded.map do |bike|
       {
         lat: bike.latitude,

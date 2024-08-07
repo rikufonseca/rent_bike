@@ -11,7 +11,5 @@ export default class extends Controller {
     setTimeout(() => {
       this.scrollTarget.classList.add("scrollable");
     }, 3000);
-
-    // show the second div home behind to go up
   }
 }

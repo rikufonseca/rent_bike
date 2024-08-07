@@ -59,6 +59,7 @@ gem 'faker'
 gem "geocoder"
 gem 'securerandom'
 gem 'unsplash'
+gem "pg_search"
 
 group :development, :test do
   gem "dotenv-rails"

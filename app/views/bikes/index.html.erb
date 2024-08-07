@@ -10,7 +10,7 @@
   <div class="display-home">
     <%= render "components/navbar" %>
     <div class="cards-container">
-        <% @bikes.each do |bike| %>
+      <% @bikes.each do |bike| %>
         <div class="card">
           <% bike.photos.each do |photo| %>
               <%= image_tag photo %>
@@ -21,10 +21,20 @@
             <p>model: <%= bike.model %></p>
           </div>
         </div>
-        <% end %>
+      <% end %>
     </div>
-    <div style="width: 36%; height: 619px;" class="map" data-controller="map" data-map-markers-value="<%= @markers.to_json %>"
+    <div class="map-and-searchbar">
+      <div>
+        <%= form_with url: root_path, method: :get, class: "d-flex mb-4" do |f| %>
+          <%= f.text_field :query,
+            value: params[:query],
+            class: "form-control",
+            placeholder: "type an address or a zip code to find the perfect bike" %>
+        <% end %>
+      </div>
+      <div style="width: 36%; height: 619px;" class="map" data-controller="map" data-map-markers-value="<%= @markers.to_json %>"
       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+     </div>
     </div>
   </div>
 </div>
