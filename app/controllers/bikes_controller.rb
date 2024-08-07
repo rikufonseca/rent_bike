@@ -1,16 +1,15 @@
 class BikesController < ApplicationController
   def index
 
-     @bikes = Bike.all
-
     if params[:query].present?
       @bikes = Bike.where('address ILIKE ?', "%#{params[:query]}%")
-    end
 
-    respond_to do |format|
-      format.html
-      format.html { render partial: 'list', locals: { bikes: @bikes } }
-      format.any { head :not_acceptable }
+      if @bikes.empty?
+        flash.now[:alert] = "Aucun vélo trouvé pour la recherche '#{params[:query]}'"
+        @bikes = Bike.all # Optionally show all bikes if no matches
+      end
+    else
+      @bikes = Bike.all
     end
 
     @markers = @bikes.geocoded.map do |bike|

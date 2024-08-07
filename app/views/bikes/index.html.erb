@@ -9,17 +9,27 @@
   </div>
   <div class="display-home">
     <%= render "components/navbar" %>
-    <%= render partial: 'list', locals: { bikes: @bikes } %>
+    <div class="cards-container">
+      <% @bikes.each do |bike| %>
+        <div class="card">
+          <% bike.photos.each do |photo| %>
+              <%= image_tag photo %>
+          <% end %>
+          <div class="info-card">
+            <p><%= bike.price_per_day %>$ / week </p>
+            <p>type: <%= bike.bike_type %></p>
+            <p>model: <%= bike.model %></p>
+          </div>
+        </div>
+      <% end %>
+    </div>
     <div class="map-and-searchbar">
       <div>
-        <%= form_with url: root_path, method: :get, class: "d-flex mb-4", data: { home_target: "form" } do |f| %>
+        <%= form_with url: root_path, method: :get, class: "d-flex mb-4" do |f| %>
           <%= f.text_field :query,
             value: params[:query],
             class: "form-control",
-            placeholder: "type an address or a zip code to find the perfect bike",
-            data: {
-              home_target: "searchInput",
-              action: "keyup->home#update"} %>
+            placeholder: "type an address or a zip code to find the perfect bike" %>
         <% end %>
       </div>
       <div style="width: 36%; height: 619px;" class="map" data-controller="map" data-map-markers-value="<%= @markers.to_json %>"
