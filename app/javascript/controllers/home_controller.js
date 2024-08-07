@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ["frame", "scroll"]
+  static targets = ["frame", "scroll", "form", "list", "searchInput"]
   connect() {
     // first div frame open up after 5 seconds, and disapear
     setTimeout(() => {
@@ -11,7 +11,13 @@ export default class extends Controller {
     setTimeout(() => {
       this.scrollTarget.classList.add("scrollable");
     }, 3000);
-
-    // show the second div home behind to go up
+  }
+  update() {
+    const url = `${this.formTarget.action}?query=${this.searchInputTarget.value}`
+    fetch(url, { headers: { 'Accept': 'text/plain' } })
+      .then(response => response.text())
+      .then((data) => {
+        this.listTarget.outerHTML = data;
+    })
   }
 }

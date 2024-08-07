@@ -1,0 +1,16 @@
+<div class="cards-container" data-home-target="list">
+  <div data-home-target="list">
+    <% bikes.each do |bike| %>
+      <div class="card">
+        <% bike.photos.each do |photo| %>
+            <%= image_tag photo %>
+        <% end %>
+        <div class="info-card">
+          <p><%= bike.price_per_day %>$ / week </p>
+          <p>type: <%= bike.bike_type %></p>
+          <p>model: <%= bike.model %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
