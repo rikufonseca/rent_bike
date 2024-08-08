@@ -14,12 +14,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
   </head>
 
-  <body data-controller="home" class="disable-scroll" data-home-target="scroll">
+  <body class="scrollable">
     <% unless current_page?(root_path) %>
       <%= render "components/navbar" %>
     <% end %>
     <%= yield %>
-    <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
   </body>
 </html>

@@ -2,11 +2,11 @@ Rails.application.routes.draw do
   get 'messages/index'
   get 'bookings/index'
   devise_for :users
-  root to: "bikes#index"
+  root to: "pages#landing"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
-  resources :bikes, only: [:show, :new, :create, :edit, :update, :destroy] do
+  resources :bikes, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
     collection do
       get :top
     end

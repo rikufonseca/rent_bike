@@ -1,0 +1,42 @@
+<div data-controller="landing" class="disable-scroll" data-landing-target="scroll">
+  <div class="home-page">
+    <div class="video-container" data-landing-target="frame">
+      <video autoplay muted loop id="video">
+        <source src='https://res.cloudinary.com/rikufonseca/video/upload/v1722876133/rent_bike_home_kc3prj.mp4' type="video/mp4">
+      </video>
+      <div class="content">
+        <h1 class="animate__animated animate__backInLeft in-middle-element" id="bike-animation"> Rent your bike </h1>
+      </div>
+    </div>
+    <div class="display-landing">
+      <%= render "components/navbar" %>
+      <div class="cards-container">
+        <% @bikes.each do |bike| %>
+          <div class="card">
+            <% bike.photos.each do |photo| %>
+                <%= image_tag photo %>
+            <% end %>
+            <div class="info-card">
+              <p><%= bike.price_per_day %>$ / week </p>
+              <p>type: <%= bike.bike_type %></p>
+              <p>model: <%= bike.model %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <div class="map-and-searchbar">
+        <div>
+          <%= form_with url: root_path, method: :get, class: "d-flex mb-4" do |f| %>
+            <%= f.text_field :query,
+              value: params[:query],
+              class: "form-control",
+              placeholder: "type an address or a zip code to find the perfect bike" %>
+          <% end %>
+        </div>
+        <div style="width: 36%; height: 619px;" class="map" data-controller="map" data-map-markers-value="<%= @markers.to_json %>"
+        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+       </div>
+      </div>
+    </div>
+  </div>
+</div>
