@@ -1,0 +1,33 @@
+/* form text-field zip code */
+.form-zip-code-search {
+  background-color: #272727;
+  border: unset;
+  box-shadow: 0 2px 8px rgba(14, 21, 47, 0.25);
+  color: white;
+}
+
+.form-zip-code-search::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+  color: white;
+}
+
+.form-zip-code-search:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+  color: white;
+  opacity:  1;
+}
+
+.form-zip-code-search::-moz-placeholder { /* Mozilla Firefox 19+ */
+  color: white;
+  opacity:  1;
+}
+
+.form-zip-code-search:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: white;
+}
+
+.form-zip-code-search::-ms-input-placeholder { /* Microsoft Edge */
+  color: white;
+}
+
+.form-zip-code-search::placeholder { /* Most modern browsers support this now. */
+  color: white;
+}

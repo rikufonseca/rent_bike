@@ -1,0 +1,27 @@
+/* index card */
+.cards-container {
+  width: 64%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 16px;
+  padding: 0 2rem 2rem 2rem;
+  border-radius: 8px;
+  margin-top: 96px;
+}
+
+.card {
+  color: white;
+  background-color: #00000033;
+  border-radius: 3px;
+  box-shadow: 0 2px 8px rgba(14,21,47,0.25);
+}
+
+.info-card {
+  padding: 10px;
+}
+
+.card img {
+  height: 144px;
+  width: 100%;
+  object-fit: cover;
+}
