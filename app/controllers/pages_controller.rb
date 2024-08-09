@@ -1,6 +1,5 @@
 class PagesController < ApplicationController
   def landing
-
     @bikes = Bike.all
 
     @markers = @bikes.geocoded.map do |bike|

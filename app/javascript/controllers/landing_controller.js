@@ -10,9 +10,6 @@ export default class extends Controller {
       this.frameTarget.classList.add("frame-slide-up");
     }, 3000);
     setTimeout(() => {
-      this.scrollTarget.classList.add("scrollable");
-    }, 3000);
-    setTimeout(() => {
        window.location.href = '/bikes';
     }, 3400);
   }
