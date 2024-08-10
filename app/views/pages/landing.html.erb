@@ -1,4 +1,4 @@
-<div data-controller="landing" class="disable-scroll" data-landing-target="scroll">
+<div data-controller="landing" data-landing-target="scroll">
   <div class="home-page">
     <div class="video-container" data-landing-target="frame">
       <video autoplay muted loop id="video">
@@ -33,9 +33,7 @@
               placeholder: "type an address or a zip code to find the perfect bike" %>
           <% end %>
         </div>
-        <div style="width: 36%; height: 619px;" class="map" data-controller="map" data-map-markers-value="<%= @markers.to_json %>"
-        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-       </div>
+        <%= render "bikes/anim_bike" %>
       </div>
     </div>
   </div>
