@@ -24,6 +24,8 @@ class BikesController < ApplicationController
 
   def show
     @bike = Bike.find(params[:id])
+    @review = Review.new
+    @message = Message.new
   end
 
   def new
