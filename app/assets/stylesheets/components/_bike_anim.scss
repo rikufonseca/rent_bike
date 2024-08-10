@@ -6,8 +6,8 @@
 .behind-black {
   background-color: #333333;
   z-index: 2;
-  animation: move_upfront 2s linear;
-  animation-delay: 1.2s;
+  animation: move_upfront 500ms linear;
+  animation-delay: 1s;
 }
 .bicycle-container {
   position: absolute;
@@ -15,8 +15,8 @@
   width: 554px;
   top: 199px;
   right: 0px;
-  animation: move_upfront 2s linear;
-  animation-delay: 1.2s;
+  animation: move_upfront 500ms linear;
+  animation-delay: 1s;
 }
 .road {
   position: absolute;
@@ -204,24 +204,25 @@
 }
 .ground1 {
   top: 214px;
-  animation-duration: 1s;
+  animation-duration: 250ms;
+  right: 15px;
 }
 .ground2 {
   top: 215px;
   left: 225px;
-  animation-duration: 1s;
+  animation-duration: 250ms;
 }
 .ground3 {
   top: 198px;
   left: 183px;
   width: 58px;
-  animation-duration: 1s;
+  animation-duration: 250ms;
 }
 .ground4 {
   top: 225px;
   left: 117px;
   width: 58px;
-  animation-duration: 1s;
+  animation-duration: 250ms;
 }
 
 @keyframes rotation {
@@ -246,7 +247,7 @@
   100% {
     width: 0px;
   } 0% {
-    width: 100%;
+    width: 78px;
   }
 }
 
