@@ -76,8 +76,7 @@ def generate_full_address
     { street_address: "3-1, Fijnje van Salverdastraat", postcode: "1065 EA" },
     { street_address: "207, Van der Palmkade", postcode: "1051 RK" },
     { street_address: "74, Kollenbergweg", postcode: "1101 AV" },
-    { street_address: "1, Drostenburg", postcode: "1102 AM" },
-    { street_address: "212-H, Louis Bouwmeesterstraat", postcode: "1065 LG" }
+    { street_address: "1, Drostenburg", postcode: "1102 AM" }
   ]
 end
 
