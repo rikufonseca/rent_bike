@@ -107,7 +107,7 @@ generate_full_address.each do |address|
 
   bike = Bike.new(
     bike_type: Bike::BIKE_TYPES.sample,
-    description: Faker::Vehicle.standard_specs,
+    description: Faker::Vehicle.standard_specs.join(", "),
     manufacturer: Faker::Vehicle.manufacturer,
     model: Faker::Vehicle.model,
     available: true,
