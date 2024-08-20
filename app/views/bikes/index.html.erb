@@ -1,8 +1,8 @@
-<div class="home-page" data-controller="landing">
+<div class="home-page" data-controller="homepage">
   <% unless params[:search].present? %>
-    <div data-landing-target="scroll">
-      <div class="video-container" data-landing-target="frame">
-        <video autoplay muted loop id="video" preload="auto" data-landing-target="bikeVideo">
+    <div data-homepage-target="scroll">
+      <div class="video-container" data-homepage-target="frame">
+        <video autoplay muted loop id="video" preload="auto" data-homepage-target="bikeVideo">
           <source src='https://res.cloudinary.com/rikufonseca/video/upload/v1722876133/rent_bike_home_kc3prj.mp4' type="video/mp4">
         </video>
         <div class="content">
@@ -11,7 +11,7 @@
       </div>
     </div>
   <% end %>
-  <div class="display-landing" data-landing-target="content">
+  <div class="display-home" data-homepage-target="content">
     <%= render "components/navbar" %>
     <div class="cards-container">
       <% @bikes.each do |bike| %>
@@ -37,10 +37,9 @@
           <%= f.hidden_field :search, value: true %>
         <% end %>
       </div>
-      <div style="width: 36%; height: 619px;" class="map" data-controller="map" data-map-markers-value="<%= @markers.to_json %>"
+      <div style="width: 100%; height: 100vh;" class="map" data-controller="map" data-map-markers-value="<%= @markers.to_json %>"
       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
      </div>
-     <%= render "anim_bike" %>
     </div>
   </div>
 </div>
