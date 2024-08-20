@@ -13,33 +13,35 @@
   <% end %>
   <div class="display-home" data-homepage-target="content">
     <%= render "components/navbar" %>
-    <div class="cards-container">
-      <% @bikes.each do |bike| %>
-        <div class="card">
-          <% bike.photos.each do |photo| %>
-              <%= image_tag photo %>
-          <% end %>
-          <div class="info-card">
-            <p><%= bike.price_per_day %>$ / week </p>
-            <p>type: <%= bike.bike_type %></p>
-            <p>model: <%= bike.model %></p>
+    <div class="flex-content">
+      <div class="cards-container">
+        <% @bikes.each do |bike| %>
+          <div class="card">
+            <% bike.photos.each do |photo| %>
+                <%= image_tag photo %>
+            <% end %>
+            <div class="info-card">
+              <p><%= bike.price_per_day %>$ / week </p>
+              <p>type: <%= bike.bike_type %></p>
+              <p>model: <%= bike.model %></p>
+            </div>
           </div>
-        </div>
-      <% end %>
-    </div>
-    <div class="map-and-searchbar">
-      <div>
-        <%= form_with url: root_path, method: :get, class: "d-flex mb-4" do |f| %>
-          <%= f.text_field :query,
-            value: params[:query],
-            class: "form-zip-code-search",
-            placeholder: "type an address or a zip code to find the perfect bike" %>
-          <%= f.hidden_field :search, value: true %>
         <% end %>
       </div>
-      <div style="width: 100%; height: 100vh;" class="map" data-controller="map" data-map-markers-value="<%= @markers.to_json %>"
-      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-     </div>
+      <div class="map-and-searchbar">
+        <div>
+          <%= form_with url: root_path, method: :get, class: "form-height mb-4" do |f| %>
+            <%= f.text_field :query,
+              value: params[:query],
+              class: "form-zip-code-search",
+              placeholder: "type an address or a zip code to find the perfect bike" %>
+            <%= f.hidden_field :search, value: true %>
+          <% end %>
+        </div>
+        <div style="width: 100%; height: calc(100vh - 116px);" class="map" data-controller="map" data-map-markers-value="<%= @markers.to_json %>"
+        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+       </div>
+      </div>
     </div>
   </div>
 </div>

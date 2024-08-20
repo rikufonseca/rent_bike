@@ -46,3 +46,14 @@
 .bike-info-on-map {
   padding: 8px;
 }
+
+.map-and-searchbar {
+  width: 36%;
+  position: fixed;
+  right: 0;
+}
+
+canvas {
+  width: 100% !important;
+  height: 100vh !important;
+}

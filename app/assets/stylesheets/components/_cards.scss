@@ -1,11 +1,11 @@
 /* index card */
 .cards-container {
   display: grid;
+  width: 64%;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 16px;
   padding: 0 2rem 2rem 2rem;
   border-radius: 8px;
-  margin-top: 96px;
   min-height: 100vh;
 }
 
