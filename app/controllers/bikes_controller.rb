@@ -1,10 +1,10 @@
 class BikesController < ApplicationController
   def index
-    if params[:query].present?
-      @bikes = Bike.where('address ILIKE ?', "%#{params[:query]}%")
+    if params[:research].present?
+      @bikes = Bike.where('address ILIKE ?', "%#{params[:research]}%")
 
       if @bikes.empty?
-        flash.now[:alert] = "Aucun vélo trouvé pour la recherche '#{params[:query]}'"
+        flash.now[:alert] = "Aucun vélo trouvé pour la recherche '#{params[:research]}'"
         @bikes = Bike.all # Optionally show all bikes if no matches
       end
     else

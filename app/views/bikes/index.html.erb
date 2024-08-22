@@ -29,9 +29,11 @@
       <div class="map-and-searchbar">
         <div>
           <%= form_with url: root_path, method: :get, class: "form-height mb-4" do |f| %>
-            <%= f.text_field :query,
-              value: params[:query],
+            <%= f.text_field :research,
+              value: params[:research],
               class: "form-zip-code-search",
+              id: "animate",
+              name: 'research',
               placeholder: "type an address or a zip code to find the perfect bike" %>
             <%= f.hidden_field :search, value: true %>
           <% end %>
