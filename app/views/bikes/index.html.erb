@@ -29,12 +29,11 @@
       <div class="map-and-searchbar">
         <div>
           <%= form_with url: root_path, method: :get, class: "form-height mb-4" do |f| %>
-            <%= f.text_field :research,
-              value: params[:research],
-              class: "form-zip-code-search",
-              id: "animate",
-              name: 'research',
-              placeholder: "type an address or a zip code to find the perfect bike" %>
+            <div data-controller="address-autocomplete" data-address-autocomplete-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+              <%= f.text_field :address,
+                class: "form-zip-code-search d-none",
+                data: {address_autocomplete_target: "address"}%>
+            </div>
             <%= f.hidden_field :search, value: true %>
           <% end %>
         </div>

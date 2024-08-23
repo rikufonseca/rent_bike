@@ -1,4 +1,11 @@
 class Bike < ApplicationRecord
+  include PgSearch::Model
+
+  pg_search_scope :search_by_address, against: [:address], using: {
+    tsearch: { any_word: true, negation: true },
+    dmetaphone: { any_word: true, sort_only: true }
+  }
+
   belongs_to :user
   has_many :bookings
   has_many :favorites

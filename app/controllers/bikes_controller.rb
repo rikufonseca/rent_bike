@@ -1,15 +1,14 @@
 class BikesController < ApplicationController
   def index
-    if params[:research].present?
-      @bikes = Bike.where('address ILIKE ?', "%#{params[:research]}%")
+    @bikes = Bike.all
 
-      if @bikes.empty?
-        flash.now[:alert] = "Aucun vélo trouvé pour la recherche '#{params[:research]}'"
-        @bikes = Bike.all # Optionally show all bikes if no matches
-      end
-    else
-      @bikes = Bike.all
+    if params[:address].present?
+      sanitized_address = params[:address].gsub(/\b(Amsterdam|Netherlands)\b/, 'Amsterdam' => '!Amsterdam', 'Netherlands' => '!Netherlands')
+
+      @bikes = Bike.search_by_address(sanitized_address)
     end
+
+    @bikes = Bike.all if @bikes.empty?
 
     @markers = @bikes.geocoded.map do |bike|
       {
