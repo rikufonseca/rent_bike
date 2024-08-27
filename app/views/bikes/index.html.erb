@@ -32,9 +32,10 @@
             <div data-controller="address-autocomplete" data-address-autocomplete-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
               <%= f.text_field :address,
                 class: "form-zip-code-search d-none",
-                data: {address_autocomplete_target: "address"}%>
+                data: {address_autocomplete_target: "address"} %>
             </div>
             <%= f.hidden_field :search, value: true %>
+            <%= f.button "Search", type: "submit", class:"button_search" %>
           <% end %>
         </div>
         <div style="width: 100%; height: calc(100vh - 116px);" class="map" data-controller="map" data-map-markers-value="<%= @markers.to_json %>"

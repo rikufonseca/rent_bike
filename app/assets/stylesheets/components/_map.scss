@@ -60,3 +60,18 @@
   box-shadow: none;
   background-color: transparent;
 }
+
+.mapboxgl-ctrl-top-right .mapboxgl-ctrl {
+  display: none;
+}
+
+.mapboxgl-ctrl-geocoder--input {
+  color: white !important;
+}
+
+.suggestions, .suggestions .mapboxgl-ctrl-geocoder--suggestion, .suggestions .active .mapboxgl-ctrl-geocoder--suggestion, .suggestions .mapboxgl-ctrl-geocoder--powered-by, .suggestions .mapboxgl-ctrl-geocoder--suggestion:hover, .suggestions .active:hover .mapboxgl-ctrl-geocoder--suggestion,
+.suggestions .mapboxgl-ctrl-geocoder--suggestion:hover {
+  background-color: #313131 !important;
+  color: white !important;
+  border: none !important;
+}

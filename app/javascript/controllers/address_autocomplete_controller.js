@@ -14,6 +14,11 @@ export default class extends Controller {
     this.geocoder.addTo(this.element)
     this.geocoder.on("result", event => this.#setInputValue(event))
     this.geocoder.on("clear", () => this.#clearInputValue())
+
+    const input = this.element.querySelector('.mapboxgl-ctrl-geocoder--input');
+    if (input) {
+      input.placeholder = "Enter a zip code or an address here";
+    }
   }
 
   disconnect() {
