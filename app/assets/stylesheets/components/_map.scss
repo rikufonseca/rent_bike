@@ -55,10 +55,11 @@
 
 .mapboxgl-ctrl-geocoder {
   max-width: none;
-  width: 100%;
+  width: 85%;
   border: 1px solid lightgrey;
   box-shadow: none;
   background-color: transparent;
+  border-radius: 2px !important;
 }
 
 .mapboxgl-ctrl-top-right .mapboxgl-ctrl {
@@ -67,10 +68,11 @@
 
 .mapboxgl-ctrl-geocoder--input {
   color: white !important;
+  width: 80%;
 }
 
-.suggestions, .suggestions .mapboxgl-ctrl-geocoder--suggestion, .suggestions .active .mapboxgl-ctrl-geocoder--suggestion, .suggestions .mapboxgl-ctrl-geocoder--powered-by, .suggestions .mapboxgl-ctrl-geocoder--suggestion:hover, .suggestions .active:hover .mapboxgl-ctrl-geocoder--suggestion,
-.suggestions .mapboxgl-ctrl-geocoder--suggestion:hover {
+.suggestions, .suggestions .mapboxgl-ctrl-geocoder--suggestion, .suggestions .active .mapboxgl-ctrl-geocoder--suggestion, .suggestions .mapboxgl-ctrl-geocoder--powered-by, .suggestions .mapboxgl-ctrl-geocoder--suggestion:focus, .suggestions .active:hover .mapboxgl-ctrl-geocoder--suggestion,
+.suggestions .mapboxgl-ctrl-geocoder--suggestion:focus {
   background-color: #313131 !important;
   color: white !important;
   border: none !important;
