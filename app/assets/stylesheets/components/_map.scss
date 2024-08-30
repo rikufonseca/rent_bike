@@ -71,9 +71,20 @@
   width: 80%;
 }
 
-.suggestions, .suggestions .mapboxgl-ctrl-geocoder--suggestion, .suggestions .active .mapboxgl-ctrl-geocoder--suggestion, .suggestions .mapboxgl-ctrl-geocoder--powered-by, .suggestions .mapboxgl-ctrl-geocoder--suggestion:focus, .suggestions .active:hover .mapboxgl-ctrl-geocoder--suggestion,
-.suggestions .mapboxgl-ctrl-geocoder--suggestion:focus {
+.suggestions {
   background-color: #313131 !important;
-  color: white !important;
   border: none !important;
+}
+
+.active {
+  background-color: #313131 !important;
+  border: none !important;
+}
+
+.mapboxgl-ctrl-geocoder--suggestion-title, .mapboxgl-ctrl-geocoder--suggestion-address {
+  color: white !important;
+}
+
+.mapboxgl-ctrl-geocoder--button {
+  background-color: #313131 !important;
 }
