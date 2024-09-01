@@ -13,6 +13,13 @@
     <%= render "components/navbar" %>
     <div class="flex-content">
       <div class="cards-container">
+        <div class="filters">
+          <div class="slidecontainer">
+            <label for="price"> how much are you willing to spend </label>
+            <input type="range" min="50" max="350" value="50" class="slider" name="price" data-homepage-target="priceSlider">
+            <span data-homepage-target="price"> </span>
+          </div>
+        </div>
         <% @bikes.each do |bike| %>
           <div class="card">
             <% bike.photos.each do |photo| %>
