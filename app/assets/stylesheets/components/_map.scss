@@ -72,18 +72,14 @@
 }
 
 .suggestions {
-  background-color: #313131 !important;
+//  background-color: #313131 !important;
   border: none !important;
+  border-radius: 0px !important;
 }
 
-.active {
-  background-color: #313131 !important;
-  border: none !important;
-}
-
-.mapboxgl-ctrl-geocoder--suggestion-title, .mapboxgl-ctrl-geocoder--suggestion-address {
-  color: white !important;
-}
+//.mapboxgl-ctrl-geocoder--suggestion-title, .mapboxgl-ctrl-geocoder--suggestion-address {
+//  color: white !important;
+//}
 
 .mapboxgl-ctrl-geocoder--button {
   background-color: #313131 !important;
