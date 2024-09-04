@@ -8,6 +8,11 @@ class BikesController < ApplicationController
       @bikes = Bike.search_by_address(sanitized_address)
     end
 
+    if params[:price_per_day].present?
+      max_price = params[:price_per_day].to_i
+      @bikes = @bikes.where(price_per_day: 0..max_price)
+    end
+
     @bikes = Bike.all if @bikes.empty?
 
     @markers = @bikes.geocoded.map do |bike|

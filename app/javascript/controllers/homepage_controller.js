@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ["frame", "content", "bikeVideo"]
+  static targets = ["frame", "content", "bikeVideo", "price", "priceSlider"]
   connect() {
     if(this.bikeVideoTarget) {
       document.body.style.visibility = 'hidden'
@@ -16,5 +16,9 @@ export default class extends Controller {
         // Apply slide-up animation to the frame
       this.frameTarget.classList.add("frame-slide-up")
     }, 3000)
+  }
+
+  update() {
+    this.priceTarget.innerHTML = `$${this.priceSliderTarget.value}`
   }
 }
