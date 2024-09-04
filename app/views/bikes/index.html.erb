@@ -22,10 +22,12 @@
               min:50,
               max:350,
               class:"slider",
-              data: { homepage_target: "priceSlider" } %>
+              data: {
+                homepage_target: "priceSlider",
+                action: "input->homepage#update" } %>
               <%= f.hidden_field :search, value: true %>
               <span data-homepage-target="price">
-                $<%= params[:price_per_day] || 200 %>
+                $<%= params[:price_per_day] || 50 %>
               </span>
               <%= f.button "Search", type: "submit", class:"button_search" %>
             <% end %>

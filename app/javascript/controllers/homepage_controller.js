@@ -16,16 +16,9 @@ export default class extends Controller {
         // Apply slide-up animation to the frame
       this.frameTarget.classList.add("frame-slide-up")
     }, 3000)
-
-    this.updatePrice()
-
-    this.priceSliderTarget.addEventListener('input', (event) => {
-      this.priceTarget.innerHTML = `$${event.target.value}`
-      console.log(event.target.value)
-    })
   }
 
-  updatePrice() {
+  update() {
     this.priceTarget.innerHTML = `$${this.priceSliderTarget.value}`
   }
 }
