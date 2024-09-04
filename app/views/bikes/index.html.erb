@@ -15,9 +15,20 @@
       <div class="cards-container">
         <div class="filters">
           <div class="slidecontainer">
-            <label for="price"> how much are you willing to spend </label>
-            <input type="range" min="50" max="350" value="50" class="slider" name="price" data-homepage-target="priceSlider">
-            <span data-homepage-target="price"> </span>
+            <p>how much are you willing to spend?</p>
+            <%= form_with url: root_path, method: :get do |f| %>
+              <%= f.range_field :price_per_day,
+              value: params[:price_per_day] || 50,
+              min:50,
+              max:350,
+              class:"slider",
+              data: { homepage_target: "priceSlider" } %>
+              <%= f.hidden_field :search, value: true %>
+              <span data-homepage-target="price">
+                $<%= params[:price_per_day] || 200 %>
+              </span>
+              <%= f.button "Search", type: "submit", class:"button_search" %>
+            <% end %>
           </div>
         </div>
         <% @bikes.each do |bike| %>
@@ -42,7 +53,7 @@
                 data: {address_autocomplete_target: "address"} %>
             </div>
             <%= f.hidden_field :search, value: true %>
-            <%= f.button "Search", type: "submit", class:"button_search" %>
+            <%= f.button "Search", type: "submit", class:"button_search position_absolute" %>
           <% end %>
         </div>
         <div style="width: 100%; height: calc(100vh - 116px);" class="map" data-controller="map" data-map-markers-value="<%= @markers.to_json %>"
