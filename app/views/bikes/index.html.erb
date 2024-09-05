@@ -15,7 +15,7 @@
       <div class="cards-container">
         <div class="filters">
           <div class="slidecontainer">
-            <p>how much are you willing to spend?</p>
+            <p>how much are you willing to spend maximum?</p>
             <%= form_with url: root_path, method: :get do |f| %>
               <%= f.range_field :price_per_day,
               value: params[:price_per_day] || 50,
@@ -26,10 +26,15 @@
                 homepage_target: "priceSlider",
                 action: "input->homepage#update" } %>
               <%= f.hidden_field :search, value: true %>
-              <span data-homepage-target="price">
-                $<%= params[:price_per_day] || 50 %>
-              </span>
-              <%= f.button "Search", type: "submit", class:"button_search" %>
+              <p>
+                <span data-homepage-target="price">
+                  $<%= params[:price_per_day] || 50 %>
+                </span>
+              </p>
+              <%= f.collection_check_boxes :bike_type, Bike::BIKE_TYPES, :to_s, :to_s, class: "dropdown-menu" %>
+              <p>
+                <%= f.button "Search", type: "submit", class:"button_search" %>
+              </p>
             <% end %>
           </div>
         </div>
