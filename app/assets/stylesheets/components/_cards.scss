@@ -14,7 +14,7 @@
   background-color: #00000033;
   border-radius: 3px;
   box-shadow: 0 2px 8px rgba(14,21,47,0.25);
-  height: 18rem;
+  height: 18.7rem;
 }
 
 .bike-card {
@@ -24,7 +24,9 @@
 }
 
 .info-card {
-  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  padding: 23px;
 }
 
 .card img {

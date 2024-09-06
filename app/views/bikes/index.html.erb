@@ -31,10 +31,20 @@
                   $<%= params[:price_per_day] || 50 %>
                 </span>
               </p>
-              <%= f.collection_check_boxes :bike_type, Bike::BIKE_TYPES, :to_s, :to_s, class: "dropdown-menu" %>
-              <p>
-                <%= f.button "Search", type: "submit", class:"button_search" %>
-              </p>
+              <div class="dropdown">
+                <button class="dropbtn"> Choose the bike's types </button>
+                <div class="dropdown-content">
+                  <div class="dropdown-grid">
+                    <%= f.collection_check_boxes :bike_type, Bike::BIKE_TYPES, :to_s, :to_s do |b| %>
+                      <label class="dropdown-input">
+                        <%= b.check_box %>
+                        <%= b.text %>
+                      </label>
+                    <% end %>
+                  </div>
+                </div>
+                <%= f.button "Search", type: "submit", class:"button_search position-absolute top-43" %>
+              </div>
             <% end %>
           </div>
         </div>
