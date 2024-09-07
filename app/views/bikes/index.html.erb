@@ -38,12 +38,13 @@
                     <%= f.collection_check_boxes :bike_type, Bike::BIKE_TYPES, :to_s, :to_s do |b| %>
                       <label class="dropdown-input">
                         <%= b.check_box %>
+                        <span class="checkbox-custom"></span>
                         <%= b.text %>
                       </label>
                     <% end %>
                   </div>
                 </div>
-                <%= f.button "Search", type: "submit", class:"button_search position-absolute top-43" %>
+                <%= f.button "Search", type: "submit", class:"button_search relative" %>
               </div>
             <% end %>
           </div>

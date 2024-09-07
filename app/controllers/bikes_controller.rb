@@ -8,6 +8,10 @@ class BikesController < ApplicationController
       @bikes = Bike.search_by_address(sanitized_address)
     end
 
+    if params[:bike_type].present?
+      @bikes = @bikes.where(bike_type: params[:bike_type])
+    end
+
     if params[:price_per_day].present?
       max_price = params[:price_per_day].to_i
       @bikes = @bikes.where(price_per_day: 0..max_price)
