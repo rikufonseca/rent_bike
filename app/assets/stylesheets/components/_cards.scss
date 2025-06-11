@@ -29,8 +29,25 @@
   padding: 23px;
 }
 
-.card img {
+.card-small-img {
   height: 144px;
   width: 100%;
   object-fit: cover;
+}
+
+.card-solo-img {
+  height: 594px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-solo {
+  height: 37.3rem;
+  width: 80%;
+  flex-direction: row;
+}
+
+.relative-position {
+  position: relative;
+  top: 109px;
 }

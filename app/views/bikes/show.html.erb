@@ -1,7 +1,7 @@
-<div class="container">
-  <div class="card bike-card">
+<div class="container in-middle-element relative-position">
+  <div class="card card-solo">
     <% @bike.photos.each do |photo| %>
-        <%= image_tag photo %>
+        <%= image_tag photo, class: "card-solo-img" %>
     <% end %>
     <div class="info-card">
       <p><%= @bike.rating %></p>

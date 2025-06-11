@@ -52,14 +52,16 @@
         <% if @bikes.any? %>
           <% @bikes.each do |bike| %>
             <div class="card">
+            <%= link_to bike_path(bike) do %>
               <% bike.photos.each do |photo| %>
-                  <%= image_tag photo %>
+                  <%= image_tag photo, class: "card-small-img" %>
               <% end %>
               <div class="info-card">
                 <p><%= bike.price_per_day %>$ / week </p>
                 <p>type: <%= bike.bike_type %></p>
                 <p>model: <%= bike.model %></p>
               </div>
+            <% end %>
             </div>
           <% end %>
         <% else %>
