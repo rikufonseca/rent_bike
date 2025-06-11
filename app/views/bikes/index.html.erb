@@ -15,7 +15,7 @@
       <div class="cards-container">
         <div class="filters">
           <div class="slidecontainer">
-            <p>how much are you willing to spend?</p>
+            <p>how much are you willing to spend maximum?</p>
             <%= form_with url: root_path, method: :get do |f| %>
               <%= f.range_field :price_per_day,
               value: params[:price_per_day] || 50,
@@ -26,24 +26,46 @@
                 homepage_target: "priceSlider",
                 action: "input->homepage#update" } %>
               <%= f.hidden_field :search, value: true %>
-              <span data-homepage-target="price">
-                $<%= params[:price_per_day] || 50 %>
-              </span>
-              <%= f.button "Search", type: "submit", class:"button_search" %>
+              <p>
+                <span data-homepage-target="price">
+                  $<%= params[:price_per_day] || 50 %>
+                </span>
+              </p>
+              <div class="dropdown">
+                <button class="dropbtn"> Choose the bike's types </button>
+                <div class="dropdown-content">
+                  <div class="dropdown-grid">
+                    <%= f.collection_check_boxes :bike_type, Bike::BIKE_TYPES, :to_s, :to_s do |b| %>
+                      <label class="dropdown-input">
+                        <%= b.check_box %>
+                        <span class="checkbox-custom"></span>
+                        <%= b.text %>
+                      </label>
+                    <% end %>
+                  </div>
+                </div>
+                <%= f.button "Search", type: "submit", class:"button_search relative" %>
+              </div>
             <% end %>
           </div>
         </div>
-        <% @bikes.each do |bike| %>
-          <div class="card">
-            <% bike.photos.each do |photo| %>
-                <%= image_tag photo %>
+        <% if @bikes.any? %>
+          <% @bikes.each do |bike| %>
+            <div class="card">
+            <%= link_to bike_path(bike) do %>
+              <% bike.photos.each do |photo| %>
+                  <%= image_tag photo, class: "card-small-img" %>
+              <% end %>
+              <div class="info-card">
+                <p><%= bike.price_per_day %>$ / week </p>
+                <p>type: <%= bike.bike_type %></p>
+                <p>model: <%= bike.model %></p>
+              </div>
             <% end %>
-            <div class="info-card">
-              <p><%= bike.price_per_day %>$ / week </p>
-              <p>type: <%= bike.bike_type %></p>
-              <p>model: <%= bike.model %></p>
             </div>
-          </div>
+          <% end %>
+        <% else %>
+           <p> No bikes found </p>
         <% end %>
       </div>
       <div class="map-and-searchbar">

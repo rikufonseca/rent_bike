@@ -4,11 +4,10 @@
   color: white;
   background-color: black;
   border: 1px solid lightgrey;
-  z-index: 2;
 }
 
-.position_absolute {
-  position: absolute;
-  right: 0;
-  top: 0;
+.relative {
+  position: relative;
+  top: 12px;
+  left: 0;
 }

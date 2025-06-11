@@ -36,3 +36,72 @@
 .form-height {
   height: 20px;
 }
+
+.dropbtn {
+  background-color:  #232222;
+  width: 100%;
+  color: white;
+  font-size: 16px;
+  border: none;
+}
+
+input[type=checkbox] {
+  background-color: #32a1ce;
+}
+
+.dropdown-content {
+  background-color:  #232222;
+  width: 100%;
+  left: 0;
+  height: 0;
+  opacity: 0;
+  position: relative;
+  transition: all .5s ease;
+}
+
+.dropdown-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 13px;
+}
+.dropdown:hover .dropdown-content, .dropdown:hover .search_button {
+  height: 143px;
+  opacity: 1;
+  transform: translateY(0);
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: black;
+}
+
+.dropdown-input input[type="checkbox"] {
+  display: none;
+}
+
+.dropdown-input {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.checkbox-custom {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-right: 5px;
+  background-color: rgb(58, 56, 56);
+}
+
+.dropdown-input input[type="checkbox"]:checked + span::before {
+  background-color: #007BFF;
+  border-color: #007BFF;
+  content: '✓';
+  font-size: smaller;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}

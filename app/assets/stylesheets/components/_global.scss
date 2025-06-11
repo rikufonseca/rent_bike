@@ -34,3 +34,9 @@ a {
 .scrollable::-webkit-scrollbar {
   width: 0;
 }
+
+.position_absolute {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
