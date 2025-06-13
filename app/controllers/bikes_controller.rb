@@ -24,6 +24,12 @@ class BikesController < ApplicationController
 
   def show
     @bike = Bike.find(params[:id])
+    booked_days = @bike.bookings.where(status: "confirmed").pluck(:start_date, :end_date)
+    @booking = Booking.new
+    @booked_dates = booked_days.map do |range|
+      (range[0]..range[1]).to_a
+    end
+    @booked_dates.flatten!
   end
 
   def new

@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     collection do
       get :top
     end
-    resources :bookings, only: [:new, :create, :edit, :update] do
+    resources :bookings, only: [:create, :edit, :update] do
       member do
         patch :accept
       end
