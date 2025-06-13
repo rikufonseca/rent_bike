@@ -8,9 +8,13 @@ class BikesController < ApplicationController
       @bikes = Bike.search_by_address(sanitized_address)
     end
 
-    @bikes = @bikes.where(price_per_day: 0..params[:price_per_day].to_i) if params[:price_per_day].present? && params[:price_per_day].to_i > 50
+    if params[:price_per_day].present? && params[:price_per_day].to_i > 50
+      @bikes = @bikes.where(price_per_day: 0..params[:price_per_day].to_i)
+    end
 
-    @bikes = @bikes.where(bike_type: params[:bike_type]) if params[:bike_type].present? && params[:bike_type].reject!(&:blank?).any?
+    if params[:bike_type].present? && params[:bike_type].reject!(&:blank?).any?
+      @bikes = @bikes.where(bike_type: params[:bike_type])
+    end
 
     @markers = @bikes.geocoded.map do |bike|
       {
