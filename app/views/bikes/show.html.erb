@@ -1,16 +1,26 @@
 <div class="container in-middle-element relative-position">
   <div class="card card-solo">
-    <% @bike.photos.each do |photo| %>
-        <%= image_tag photo, class: "card-solo-img" %>
-    <% end %>
+    <div>
+      <% @bike.photos.each do |photo| %>
+          <%= image_tag photo, class: "card-solo-img" %>
+      <% end %>
+      <p>description: <%= @bike.description %></p>
+    </div>
     <div class="info-card">
       <p><%= @bike.rating %></p>
       <p><%= @bike.price_per_day %>$ / week </p>
       <p>type: <%= @bike.bike_type %></p>
       <p>model: <%= @bike.model %></p>
       <p>manufacturer: <%= @bike.manufacturer %></p>
-      <p><%= @bike.description %></p>
       <p>where: <%= @bike.address %></p>
+      <div>
+        <%= simple_form_for [@bike, @booking], class: "booking-form" do |f| %>
+          <div class="calendar-container">
+            <%= f.input :start_date, as: :string, label: false, input_html: { data: { controller: "flatpickr", flatpickr_disabled_dates_value: @booked_dates}} %>
+          </div>
+          <%= f.submit 'Send a booking request', class: "btn btn-primary" %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
