@@ -1,2 +1,29 @@
-<h1>Bookings#index</h1>
-<p>Find me in app/views/bookings/index.html.erb</p>
+<div class="cards-container" style="width: 100%">
+  <% if user_signed_in? %>
+    <% @bookings.each do |booking| %>
+      <div class="card">
+        <% booking.bike.photos.each do |photo| %>
+          <%= image_tag photo, class: "card-small-img" %>
+        <% end %>
+        <div class="info-card">
+          <div class="direction-inline space-between">
+            <p>
+              <%= 5.times.map { |i| i < booking.bike.rating ? tag.i(class: 'fa-solid fa-star', style:"color: #ebeb67") : tag.i(class: 'fa-regular fa-star') }.join.html_safe %>
+            </p>
+            <p><%= booking.bike.bike_type %></p>
+          </div>
+          <div class="direction-inline space-between">
+            <p><%= booking.bike.manufacturer %>/<%= booking.bike.model %> </p>
+            <p><%= booking.bike.price_per_day %>$ / day</p>
+          </div>
+          <p><%= booking.bike.address %></p>
+          <p>from: <%= booking.start_date %> to: <%= booking.end_date %></p>
+          <p><%= booking.status %></p>
+          <%= link_to "Cancel", booking_path(booking), method: :delete, class: "btn btn-primary" %>
+        </div>
+      </div>
+    <% end %>
+  <% else  %>
+    <%= link_to "Sign in to see your bookings", new_user_session_path %>
+  <% end %>
+</div>

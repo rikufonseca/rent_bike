@@ -14,12 +14,16 @@
       <p>manufacturer: <%= @bike.manufacturer %></p>
       <p>where: <%= @bike.address %></p>
       <div>
+      <% if user_signed_in? %>
         <%= simple_form_for [@bike, @booking], class: "booking-form" do |f| %>
           <div class="calendar-container">
             <%= f.input :start_date, as: :string, label: false, input_html: { data: { controller: "flatpickr", flatpickr_disabled_dates_value: @booked_dates}} %>
           </div>
           <%= f.submit 'Send a booking request', class: "btn btn-primary" %>
         <% end %>
+      <% else %>
+        <%= link_to "Sign in or sign up to book a bike", new_user_session_path, class: "btn btn-primary" %>
+      <% end %>
       </div>
     </div>
   </div>

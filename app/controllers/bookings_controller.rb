@@ -1,4 +1,8 @@
 class BookingsController < ApplicationController
+
+  def index
+    @bookings = current_user.bookings
+  end
   def create
     range = params[:booking][:start_date].split(" to ")
     @booking = Booking.new(start_date: range[0], end_date: range[1])
