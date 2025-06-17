@@ -1,9 +1,9 @@
-<div class="cards-container" style="width: 100%">
-  <% if user_signed_in? %>
+<% if user_signed_in? %>
+  <div class="cards-container relative-position" style="width: 100%">
     <% @bookings.each do |booking| %>
       <div class="card">
         <% booking.bike.photos.each do |photo| %>
-          <%= image_tag photo, class: "card-small-img" %>
+          <%= image_tag photo, class: "card-small-medium" %>
         <% end %>
         <div class="info-card">
           <div class="direction-inline space-between">
@@ -17,13 +17,17 @@
             <p><%= booking.bike.price_per_day %>$ / day</p>
           </div>
           <p><%= booking.bike.address %></p>
-          <p>from: <%= booking.start_date %> to: <%= booking.end_date %></p>
-          <p><%= booking.status %></p>
-          <%= link_to "Cancel", booking_path(booking), method: :delete, class: "btn btn-primary" %>
+          <p>from: <%= booking.start_date.strftime("%d/%m/%Y") %> to: <%= booking.end_date.strftime("%d/%m/%Y") %></p>
+          <div class="direction-inline">
+            <p class="btn btn-primary w-50" style="margin: 0 3px"><%= booking.status %></p>
+            <%= link_to "Cancel", booking_path(booking), method: :delete, class: "btn btn-primary w-50" %>
+          </div>
         </div>
       </div>
     <% end %>
-  <% else  %>
-    <%= link_to "Sign in to see your bookings", new_user_session_path %>
-  <% end %>
-</div>
+  </div>
+<% else  %>
+  <div class="container in-middle-element relative-position">
+   <%= link_to "Sign in to see your reservations", new_user_session_path, class: "btn btn-primary" %>
+  </div>
+<% end %>

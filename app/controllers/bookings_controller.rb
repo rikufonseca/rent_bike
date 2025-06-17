@@ -1,7 +1,7 @@
 class BookingsController < ApplicationController
 
   def index
-    @bookings = current_user.bookings
+      @bookings = current_user.bookings if user_signed_in?
   end
   def create
     range = params[:booking][:start_date].split(" to ")
