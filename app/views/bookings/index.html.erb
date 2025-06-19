@@ -1,7 +1,7 @@
 <% if user_signed_in? %>
   <div class="cards-container relative-position" style="width: 100%">
     <% @bookings.each do |booking| %>
-      <div class="card">
+      <div class="card" style="height: 577px">
         <% booking.bike.photos.each do |photo| %>
           <%= image_tag photo, class: "card-small-medium" %>
         <% end %>
@@ -20,7 +20,7 @@
           <p>from: <%= booking.start_date.strftime("%d/%m/%Y") %> to: <%= booking.end_date.strftime("%d/%m/%Y") %></p>
           <div class="direction-inline">
             <p class="btn btn-primary w-50" style="margin: 0 3px"><%= booking.status %></p>
-            <%= link_to "Cancel", booking_path(booking), method: :delete, class: "btn btn-primary w-50" %>
+            <%= link_to "Cancel", booking_path(booking), data: {turbo_method: :delete }, class: "btn btn-primary w-50" %>
           </div>
         </div>
       </div>

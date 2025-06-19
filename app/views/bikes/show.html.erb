@@ -7,7 +7,9 @@
       <p>description: <%= @bike.description %></p>
     </div>
     <div class="info-card">
-      <p><%= @bike.rating %></p>
+      <p>
+        <%= 5.times.map { |i| i < @bike.rating ? tag.i(class: 'fa-solid fa-star', style:"color: #ebeb67") : tag.i(class: 'fa-regular fa-star') }.join.html_safe %>
+      </p>
       <p><%= @bike.price_per_day %>$ / week </p>
       <p>type: <%= @bike.bike_type %></p>
       <p>model: <%= @bike.model %></p>
@@ -15,11 +17,15 @@
       <p>where: <%= @bike.address %></p>
       <div>
       <% if user_signed_in? %>
-        <%= simple_form_for [@bike, @booking], class: "booking-form" do |f| %>
-          <div class="calendar-container">
-            <%= f.input :start_date, as: :string, label: false, input_html: { data: { controller: "flatpickr", flatpickr_disabled_dates_value: @booked_dates}} %>
-          </div>
-          <%= f.submit 'Send a booking request', class: "btn btn-primary" %>
+        <% if @bike.user != current_user %>
+          <%= simple_form_for [@bike, @booking], class: "booking-form" do |f| %>
+            <div class="calendar-container">
+              <%= f.input :start_date, as: :string, label: false, input_html: { data: { controller: "flatpickr", flatpickr_disabled_dates_value: @booked_dates}} %>
+            </div>
+            <%= f.submit 'Send a booking request', class: "btn btn-primary" %>
+          <% end %>
+        <% else %>
+          <p class="sticker animate__animated animate__zoomInRight">This bike is yours, buddy !</p>
         <% end %>
       <% else %>
         <%= link_to "Sign in or sign up to book a bike", new_user_session_path, class: "btn btn-primary" %>
