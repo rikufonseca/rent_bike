@@ -1,4 +1,8 @@
 class BookingsController < ApplicationController
+
+  def index
+      @bookings = current_user.bookings if user_signed_in?
+  end
   def create
     range = params[:booking][:start_date].split(" to ")
     @booking = Booking.new(start_date: range[0], end_date: range[1])
@@ -10,5 +14,11 @@ class BookingsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def destroy
+    @booking = Booking.find(params[:id])
+    @booking.destroy
+    redirect_to bookings_path
   end
 end
